@@ -1,0 +1,71 @@
+  [1m[35m (42.6ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (31.2ms)[0m  [1m[35mCREATE DATABASE `git_app_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE `git_app_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@innodb_file_per_table = 1 AND @@innodb_file_format = 'Barracuda'[0m
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) COLLATE utf8_general_ci NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) COLLATE utf8_general_ci NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT GET_LOCK('8668466217359106270', 0)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateArticles (20200622100737)
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE `articles` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `author` varchar(255), `text` text, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200622100737')[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2020-06-22 10:08:15.182519', '2020-06-22 10:08:15.182519')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8668466217359106270')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/articles" for ::1 at 2020-06-22 19:08:31 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (14.6ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:16
+  Rendered articles/index.html.erb within layouts/application (Duration: 27.0ms | Allocations: 1837)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/satochika/projects/git-app/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.43.0
+Time: 2194ms
+Built at: 2020/06/22 19:08:36
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 4748ms (Views: 4719.0ms | ActiveRecord: 16.6ms | Allocations: 25412)
+
+
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('8668466217359106270', 0)[0m
+  [1m[35m (9.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8668466217359106270')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/articles" for ::1 at 2020-06-22 19:33:26 +0900
+  [1m[35m (1.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:16
+  Rendered articles/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 1664)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 51.1ms | ActiveRecord: 6.0ms | Allocations: 10047)
+
+
